@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 const sequelize = require('./config/config') ;
+const userRoutes =  require ('./routes/userRoutes');
 
-const User = require('./models/user');//será removido 
+app.use(express.json());
+app.use('/api', userRoutes);
+
 sequelize.sync()
     .then (
         ()=> {

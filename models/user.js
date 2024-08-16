@@ -1,4 +1,4 @@
-const { DataTypes } = require ('sequelize');
+const { DataTypes } = require ('sequelize'); // mapeamento de obj relac ORM
 const sequelize = require('../config/config');
 
 
