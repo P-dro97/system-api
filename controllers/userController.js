@@ -1,9 +1,7 @@
-
-const User = require('../models/user');
-
+const User = require('../models/user');// usa o modelo para ver se a tabela existe 
 
 
-exports.listUsers = async (req, res) => {
+exports.listUsers = async (req, res) => { 
     try {
         const users = await User.findAll({
                 attributes: ['username', 'loginuser', 'active'],
