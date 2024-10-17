@@ -4,7 +4,7 @@ const User = require('../models/user');// usa o modelo para ver se a tabela exis
 exports.listUsers = async (req, res) => { 
     try {
         const users = await User.findAll({
-                attributes: ['username', 'loginuser', 'active'],
+                attributes: ['id','username', 'loginuser', 'active'],
             });
             if (users.length === 0) {
                 return res.status(404).json({message: 'User not found'});
