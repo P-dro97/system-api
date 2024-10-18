@@ -4,11 +4,13 @@ const sequelize = require('./config/config') ;
 const userRoutes =  require ('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes')
 const setupSwagger = require('./swagger/swagger')
+const productRoutes = require('./routes/productRoutes')
 
 app.use(express.json()); // usar no express o json 
 setupSwagger(app)
 app.use('/api', userRoutes); // cria uma rota final
 app.use('/api', authRoutes);
+app.use('/api', productRoutes);
 
 sequelize.sync()
     .then ( //efetua a 

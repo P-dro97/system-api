@@ -3,12 +3,14 @@ const bcrypt = require('bcrypt');
 const { response } = require('express');
 const jwt = require ('jsonwebtoken');
 require('dotenv').config();
+
+
 exports.register = async (req, res) => {
     try {
         const {username, loginuser, password } = req.body;
         const existingUser = await User.findOne ({where:{loginuser}});
         if (existingUser){
-           // return res.status(200).json({message: 'Login alredy exists'});
+           return res.status(200).json({message: 'Login alredy exists'});
         }
         const hashePassword = await bcrypt.hash(password, 10);
         const user = await User.create({username, loginuser, password: hashePassword, active:true});
